@@ -1,0 +1,6 @@
+# Konfigurační soubor pro CoreModule.
+
+parameters:
+
+# Nastavení služeb dále přístupných pomocí DI v rámci celé aplikace.
+services:

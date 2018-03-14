@@ -1,0 +1,55 @@
+{**
+ * @param string   $basePath web base path
+ * @param array    $flashes  flash messages
+ *}
+<!DOCTYPE html>
+<html lang="cs-cz">
+<head>
+	<meta charset="utf-8">
+	<title>{include title|striptags}</title>
+	<meta name="description" content="{include description|striptags}">
+
+    {block css}
+	<link rel="stylesheet" href="{$basePath}/css/style.css" type="text/css">
+    {/block}
+
+	{block head}{/block}
+</head>
+
+<body>
+    <header>
+        <h1>Jednoduchý redakční systém v Nette</h1>
+    </header>
+
+    {* Vypis zprav *}
+    <p n:foreach="$flashes as $flash" class="message">{$flash->message}</p>
+
+    <nav>
+        <ul>
+            <li><a n:href=":Core:Article:">Úvod</a></li>
+            <li><a n:href=":Core:Article:list">Seznam článku</a></li>
+            <li><a n:href=":Core:Contact:">Kontakt</a></li>
+        </ul>
+    </nav>
+    <article>
+        <header>
+            <h1>{include title}</h1>
+        </header>
+        <section>
+            {include content} {* vlozi obsah sablony*}
+        </section>
+    </article>
+
+
+    <footer>
+        <p>
+            Ukázkový tutoriál pro jednoduchý redakční systém v Nette z programátorské sociální sítě
+            <a href="http://www.itnetwork.cz" target="_blank">itnetwork.cz</a>. <a n:href=":Core:Administration:">Administrace</a></p>
+        </p>
+    </footer>
+
+    <br clear="both" />
+
+    {block scripts}{/block}
+</body>
+</html>
